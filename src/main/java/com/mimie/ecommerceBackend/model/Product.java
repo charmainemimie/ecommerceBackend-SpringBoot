@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
+@Entity //make it table
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
 
-    @Id
+    @Id //pk
     private int id;
     private String name;
     private String description;
