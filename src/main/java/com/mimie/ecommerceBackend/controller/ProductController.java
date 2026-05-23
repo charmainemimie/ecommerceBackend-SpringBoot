@@ -97,6 +97,7 @@ public class ProductController {
             return new ResponseEntity<>("Failed to update", HttpStatus.BAD_REQUEST);
     }
 
+    //delete product
     @DeleteMapping("/product/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable int id){
         Product product = service.getProduct(id);
@@ -107,5 +108,12 @@ public class ProductController {
         else
             return new ResponseEntity<>("Product not found", HttpStatus.NOT_FOUND);
 
+    }
+ //search function
+    @GetMapping("/products/search")
+    public ResponseEntity<List<Product>> searchProducts(@RequestParam String keyword){
+        List<Product> products = service.searchProducts(keyword);
+        System.out.println("searching with " + keyword);
+        return new ResponseEntity<>(products, HttpStatus.OK);
     }
    }
